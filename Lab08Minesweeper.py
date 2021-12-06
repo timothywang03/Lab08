@@ -3,8 +3,6 @@
 from graphics import *
 from random import randint
 from collections import deque
-from Queue import Queue
-
 
 class Board:
     def __init__(self):
