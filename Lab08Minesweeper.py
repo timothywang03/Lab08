@@ -25,9 +25,11 @@ def main():
 
     endgame = True
 
+    j = list(print(x) for x in board.get_board())
     while True:
         if quit.clicked(cur1):
             ui.getWin().close()
+            print('fjdkfj')
             return
 
         cur2 = ui.getWin().getKey()
@@ -66,9 +68,15 @@ def main():
         for x in board.get_mines():
             Text(Point(125 + 50 * x[1], 125 + 50 * x[0]), 'M').draw(ui.getWin())
     replay = Button(ui.getWin(), Point(90, 30), 50, 40, 'orange', 'Replay')
+    replay.activate()
     cur1 = ui.getWin().getMouse()
 
-    if replay.clicked(cur1):
-        main()
+    while True:
+        if replay.clicked(cur1):
+            ui.getWin().close()
+            main()
+            break
+        elif quit.clicked(cur1):
+            break
 
 main()
