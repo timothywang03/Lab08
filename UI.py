@@ -14,6 +14,7 @@ class Square:
     def set_color(self, newcolor): #Changes the color of the piece
         """Only used on the front-end GUI"""
         self.color = newcolor
+        self.button.setColor(newcolor)
 
     def is_clicked(self, mouse_click):
         return self.button.clicked(mouse_click) #Boolean, checks if button clicked
@@ -48,7 +49,8 @@ class UI:
         for x in range(8):
             row = list()
             for i in range(8):
-                Text(Point(125 + 50 * i, 125 + 50 * x), str(board[x][i])).draw(self.win)
+                if str(board[x][i]) != '0':
+                    Text(Point(125 + 50 * i, 125 + 50 * x), str(board[x][i])).draw(self.win)
                 row.append(Square(125 + 50 * i, 125 + 50 * x, self.win, Button)) #Creates square objects within the board list, a list-of-lists that allows us to access squares by coords
             self.board.append(row)
 
