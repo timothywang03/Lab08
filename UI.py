@@ -1,5 +1,6 @@
 from graphics import *
 from Button import Button
+from Board import translate
 
 class Square:
     def __init__(self, x, y, win, button):
@@ -37,7 +38,7 @@ class Square:
 
 
 class UI:
-    def __init__(self):
+    def __init__(self, board):
         self.win = GraphWin('Minesweeper', 600, 600)
 
         background = Rectangle(Point(-1, -1), Point(601, 601))
@@ -48,9 +49,13 @@ class UI:
         for x in range(8):
             row = list()
             for i in range(8):
+                Text(Point(125 + 50 * i, 125 + 50 * x), str(board[x][i])).draw(self.win)
                 row.append(Square(125 + 50 * i, 125 + 50 * x, self.win, Button)) #Creates square objects within the board list, a list-of-lists that allows us to access squares by coords
             self.board.append(row)
-
+        j = list(print(list(translate(x.get_x(), x.get_y()) for x in y)) for y in self.board)
 
     def getWin(self):
         return self.win
+
+    def get_board(self):
+        return self.board

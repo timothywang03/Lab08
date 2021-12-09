@@ -10,11 +10,11 @@ class Board:
         # initalizes a list of 10 mines, generated at random with no overlap
         self.mines = list()
         for x in range(10):
-            mine = (randint(0, 7), randint(0, 7))
-            if mine not in self.mines:
-                self.mines.append(mine)
-            else:
-                continue
+            while True:
+                mine = (randint(0, 7), randint(0, 7))
+                if mine not in self.mines:
+                    self.mines.append(mine)
+                    break
 
         # places the mines onto the board
         for x in self.mines:
@@ -62,6 +62,9 @@ class Board:
                             self.covered[new_x][new_y] = 1
         self.covered[space[0]][space[1]] = 1
         return path
+
+    def get_board(self):
+        return self.board
 
 
 def translate(x, y):
