@@ -31,8 +31,6 @@ class Board:
                             if self.board[new_x][new_y] == 'M':
                                 adjacent += 1
                     self.board[x][y] = str(adjacent)
-        j = list(print(x) for x in self.board)
-        print(self.mines)
         self.covered = list(list(0 for x in range(8)) for y in range(8))
 
     def uncover(self, space):
@@ -66,7 +64,10 @@ class Board:
     def get_board(self):
         return self.board
 
+    def get_mines(self):
+        return self.mines
+
 
 def translate(x, y):
     """x, y represent pixel coordinates in which the click is interpreted"""
-    return ((x - 100) // 50), ((y - 100) // 50) #Converts pixel coords to grid coords
+    return ((x - 100) // 50), ((y - 100) // 50) # Converts pixel coords to grid coords
