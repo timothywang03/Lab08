@@ -16,6 +16,10 @@ def main():
     title = Text(Point(300, 50), 'Minesweeper')
     title.setSize(30)
     title.draw(ui.getWin())
+
+    instructions = Text(Point(300, 80), "Click a tile to select it, then press 'F' to flag or 'D' to dig up")
+    instructions.setSize(10)
+    instructions.draw(ui.getWin())
     cur1 = ui.getWin().getMouse()
     flagged = list()
 
@@ -32,11 +36,8 @@ def main():
             if cur2 == 'f':
                 if ui.get_board()[coords[0]][coords[1]].get_color() == 'green':
                     ui.board[coords[0]][coords[1]].set_color('red')
-                    flagged.append(coords)
                 else:
-                    print(ui.board[coords[0]][coords[1]])
                     ui.board[coords[0]][coords[1]].set_color('green')
-                    flagged.remove(coords)
             else:
                 reveal = board.uncover(coords)
                 if reveal == 'Bomb':
@@ -47,11 +48,12 @@ def main():
                         ui.get_board()[x[0]][x[1]].undraw()
 
         counter = 0
-        for x in board.get_board():
+        for x in board.get_covered():
             for y in x:
                 if y == 1:
                     counter += 1
-        if counter == 10:
+
+        if counter == 54:
             endgame == True
             break
 
@@ -66,7 +68,7 @@ def main():
     replay = Button(ui.getWin(), Point(90, 30), 50, 40, 'orange', 'Replay')
     cur1 = ui.getWin().getMouse()
 
-    if replay.clicked(cur):
+    if replay.clicked(cur1):
         main()
 
 main()

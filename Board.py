@@ -67,6 +67,9 @@ class Board:
     def get_mines(self):
         return self.mines
 
+    def get_covered(self):
+        return self.covered
+
 
 def translate(x, y):
     """x, y represent pixel coordinates in which the click is interpreted"""
