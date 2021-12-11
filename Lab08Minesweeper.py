@@ -1,4 +1,4 @@
-# Lab08Minesweeper.py - Timothy Wang
+# Lab08Minesweeper.py - Timothy Wang and Darren Shen
 
 from graphics import *
 from random import randint
@@ -86,7 +86,7 @@ def main():
             ui.getWin().close()
             main()
             break
-        elif quit.clicked(cur1):  
+        elif quit.clicked(cur1):
             break
 
 main()
