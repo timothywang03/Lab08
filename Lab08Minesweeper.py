@@ -4,7 +4,7 @@ from graphics import *
 from random import randint
 from collections import deque
 from Button import Button
-from UI import UI
+from UIMinesweeper import UI
 from Board import Board, translate
 
 def main():
