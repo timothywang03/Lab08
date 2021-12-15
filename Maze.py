@@ -36,11 +36,8 @@ class Maze:
         for x, y in self.adjacency.items():
             for z in y:
                 self.maze[x[0] + z[0] + 1][x[1] + z[1] + 1] = 'C'
+        self.maze[0][1] = 'C'
+        self.maze[-1][-2] = 'C'
 
     def get_maze(self):
         return self.maze
-
-
-maze = Maze((10, 10))
-maze.fill()
-j = list(print(x) for x in maze.maze)

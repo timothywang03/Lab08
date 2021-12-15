@@ -2,37 +2,6 @@ from graphics import *
 from Button import Button
 
 
-class Square:
-    def __init__(self, x, y, win):
-        self.x = x
-        self.y = y #These are graphical coordinates, translate() will help
-        self.win = win
-        self.color = 'green' #Initially green
-
-
-    def set_color(self, newcolor): #Changes the color of the piece
-        """Only used on the front-end GUI"""
-        self.color = newcolor
-        self.button.setColor(newcolor)
-
-    def undraw(self):
-        self.button.undraw()
-
-
-    # Getter methods below:
-    def get_color(self):
-        return self.color
-
-    def get_x(self):
-        return self.x
-
-    def get_y(self):
-        return self.y
-
-    def get_win(self):
-        return self.win
-
-
 class UI:
     def __init__(self):
         self.win = GraphWin('Enter Maze Dimensions', 200, 200)
@@ -53,15 +22,15 @@ class UI:
                 break
             else:
                 self.win.getMouse()
+            cur = self.win.getMouse()
 
-        self.win = GraphWin('Maze', 700, 700)
+        self.win = GraphWin('Maze', 700, 800)
         self.generate = Button(self.win, Point(40, 40), 50, 25, 'green', 'Generate')
         self.generate.activate()
         self.quit = Button(self.win, Point(120, 40), 50, 25, 'red', 'Quit')
         self.quit.activate()
-        cur = self.win.getMouse()
 
-        self.square_size = 700 / self.x // 2
+        self.square_size = 600 // (self.x * 2 + 1)
 
     def get_dimensions(self):
         return self.x, self.y
@@ -75,4 +44,5 @@ class UI:
     def get_generate(self):
         return self.generate
 
-UI()
+    def get_square_size(self):
+        return self.square_size
