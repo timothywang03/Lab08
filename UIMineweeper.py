@@ -39,23 +39,27 @@ class Square:
 
 class UI:
     def __init__(self, board):
-        self.win = GraphWin('Minesweeper', 600, 600)
+        self.win = GraphWin('Minesweeper', 600, 600)    # initalizes window
 
+        # sets background color
         background = Rectangle(Point(-1, -1), Point(601, 601))
         background.setFill('#D2B48C')
         background.draw(self.win)
 
+        # saves all button within matrix
         self.board = list()
         for x in range(8):
             row = list()
             for i in range(8):
                 if str(board[x][i]) != '0':
                     Text(Point(125 + 50 * i, 125 + 50 * x), str(board[x][i])).draw(self.win)
-                row.append(Square(125 + 50 * i, 125 + 50 * x, self.win, Button)) #Creates square objects within the board list, a list-of-lists that allows us to access squares by coords
+                row.append(Square(125 + 50 * i, 125 + 50 * x, self.win, Button)) # Creates square objects within the board list, a list-of-lists that allows us to access squares by coords
             self.board.append(row)
 
     def getWin(self):
+        """Returns window"""
         return self.win
 
     def get_board(self):
+        """Returns board matrix"""
         return self.board
