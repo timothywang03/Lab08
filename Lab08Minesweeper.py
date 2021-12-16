@@ -88,5 +88,7 @@ def main():
             break
         elif quit.clicked(cur1):
             break
+        else:
+            cur1 = ui.getWin().getMouse()
 
 main()
