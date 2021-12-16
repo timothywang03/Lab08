@@ -29,7 +29,7 @@ def main():
                 for y in range(dimensions[1] * 2 + 1):
                     rect = Rectangle(Point(top_left + x * ui.get_square_size(), top_left + y * ui.get_square_size() + 100),
                                 Point(top_left + (x + 1) * ui.get_square_size(), top_left + (y + 1) * ui.get_square_size() + 100))
-                    if maze[x][y] == 'W':
+                    if maze[y][x] == 'W':
                         rect.setFill('brown')
                         rect.setOutline('brown')
                     else:

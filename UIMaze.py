@@ -21,8 +21,11 @@ class UI:
                 # instantiates dimensions of grid
                 self.x = int(x.getText())
                 self.y = int(y.getText())
-                self.win.close()
-                break
+                if 1 <= self.x < 30 and 1 <= self.y < 30:
+                    self.win.close()
+                    break
+                else:
+                    pass
             else:
                 self.win.getMouse()
             cur = self.win.getMouse()
