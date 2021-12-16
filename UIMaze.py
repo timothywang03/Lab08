@@ -37,7 +37,7 @@ class UI:
         self.quit = Button(self.win, Point(120, 40), 50, 25, 'red', 'Quit')
         self.quit.activate()
 
-        self.square_size = 600 // (self.x * 2 + 1)
+        self.square_size = 600 // (max(self.x, self.y) * 2 + 1)
 
     def get_dimensions(self):
         return self.x, self.y

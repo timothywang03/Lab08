@@ -22,7 +22,7 @@ def main():
             maze = Maze(dimensions)
             maze.fill()                         # fills the maze in board module
             maze = maze.get_maze()
-            top_left = 350 - (dimensions[0]) * ui.get_square_size() # instantiates top left corner of maze
+            top_left = 100 # instantiates top left corner of maze
 
             # draws the squares within the maze and colors them in
             for x in range(dimensions[0] * 2 + 1):
