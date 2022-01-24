@@ -1,29 +1,32 @@
 from graphics import *
 from Button import Button
 
+
 class Square:
     def __init__(self, x, y, win, button):
         self.x = x
-        self.y = y #These are graphical coordinates, translate() will help
+        self.y = y  # These are graphical coordinates, translate() will help
         self.win = win
-        self.button = button(self.win, Point(self.x, self.y), 50, 50, 'green', '') #We make it a button so that it can be clicked
+        # We make it a button so that it can be clicked
+        self.button = button(self.win, Point(
+            self.x, self.y), 50, 50, 'green', '')
         self.button.activate()
-        self.color = 'green' #Initially green
+        self.color = 'green'  # Initially green
 
-
-    def set_color(self, newcolor): #Changes the color of the piece
+    def set_color(self, newcolor):  # Changes the color of the piece
         """Only used on the front-end GUI"""
         self.color = newcolor
         self.button.setColor(newcolor)
 
     def is_clicked(self, mouse_click):
-        return self.button.clicked(mouse_click) #Boolean, checks if button clicked
+        # Boolean, checks if button clicked
+        return self.button.clicked(mouse_click)
 
     def undraw(self):
         self.button.undraw()
 
-
     # Getter methods below:
+
     def get_color(self):
         return self.color
 
@@ -52,8 +55,11 @@ class UI:
             row = list()
             for i in range(8):
                 if str(board[x][i]) != '0':
-                    Text(Point(125 + 50 * i, 125 + 50 * x), str(board[x][i])).draw(self.win)
-                row.append(Square(125 + 50 * i, 125 + 50 * x, self.win, Button)) # Creates square objects within the board list, a list-of-lists that allows us to access squares by coords
+                    Text(Point(125 + 50 * i, 125 + 50 * x),
+                         str(board[x][i])).draw(self.win)
+                # Creates square objects within the board list, a list-of-lists that allows us to access squares by coords
+                row.append(Square(125 + 50 * i, 125 +
+                           50 * x, self.win, Button))
             self.board.append(row)
 
     def getWin(self):

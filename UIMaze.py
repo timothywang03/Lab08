@@ -32,7 +32,8 @@ class UI:
 
         # instantiates all the ui elements needed to create maze
         self.win = GraphWin('Maze', 700, 800)
-        self.generate = Button(self.win, Point(40, 40), 50, 25, 'green', 'Generate')
+        self.generate = Button(self.win, Point(
+            40, 40), 50, 25, 'green', 'Generate')
         self.generate.activate()
         self.quit = Button(self.win, Point(120, 40), 50, 25, 'red', 'Quit')
         self.quit.activate()

@@ -4,6 +4,7 @@ from graphics import *
 from Maze import Maze
 from UIMaze import UI
 
+
 def main():
     ui = UI()   # calls the ui class
 
@@ -22,13 +23,13 @@ def main():
             maze = Maze(dimensions)
             maze.fill()                         # fills the maze in board module
             maze = maze.get_maze()
-            top_left = 100 # instantiates top left corner of maze
+            top_left = 100  # instantiates top left corner of maze
 
             # draws the squares within the maze and colors them in
             for x in range(dimensions[0] * 2 + 1):
                 for y in range(dimensions[1] * 2 + 1):
                     rect = Rectangle(Point(top_left + x * ui.get_square_size(), top_left + y * ui.get_square_size() + 100),
-                                Point(top_left + (x + 1) * ui.get_square_size(), top_left + (y + 1) * ui.get_square_size() + 100))
+                                     Point(top_left + (x + 1) * ui.get_square_size(), top_left + (y + 1) * ui.get_square_size() + 100))
                     if maze[y][x] == 'W':
                         rect.setFill('brown')
                         rect.setOutline('brown')
@@ -38,5 +39,6 @@ def main():
                     rect.draw(ui.get_win())
 
         cur = ui.get_win().getMouse()
+
 
 main()
